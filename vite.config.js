@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/fantaAD/',
+  base: process.env.GITHUB_ACTIONS ? '/fantaAD/' : '/',
   plugins: [react()],
   server: {
     host: '0.0.0.0',
