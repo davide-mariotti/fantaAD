@@ -97,14 +97,14 @@ export const INITIAL_CARDS = [
   }
 ];
 
-// Read environment variables
+// Hardcoded production Firebase configuration keys (safe for public client bundling)
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: "AIzaSyCmdCxGv7WAPlMc5WfGPbm2WELwyflajr4",
+  authDomain: "fantaad-6f95f.firebaseapp.com",
+  projectId: "fantaad-6f95f",
+  storageBucket: "fantaad-6f95f.firebasestorage.app",
+  messagingSenderId: "384139918794",
+  appId: "1:384139918794:web:44a264a01d4fe6ad6be333"
 };
 
 // Check if variables are valid and set
