@@ -1,0 +1,25 @@
+{
+  "short_name": "FantaAdiacent",
+  "name": "🏆 Fanta Adiacent: Pokedex Aziendale",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#0a051b",
+  "theme_color": "#0a051b",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "description": "Colleziona le figure mitologiche in azienda, vota le catture degli altri utenti e sali in cima alla classifica globale!",
+  "lang": "it"
+}
