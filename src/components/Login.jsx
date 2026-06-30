@@ -30,7 +30,7 @@ export default function Login({ onLoginSuccess, showToast }) {
     e.preventDefault();
     const name = customName.trim() || MOCK_AVATARS[selectedAvatarIdx].name;
     const seed = MOCK_AVATARS[selectedAvatarIdx].seed;
-    
+
     // Generate a unique mock uid
     const mockUser = {
       uid: `mock_${seed}_${Date.now()}`,
@@ -38,16 +38,16 @@ export default function Login({ onLoginSuccess, showToast }) {
       email: `${seed}@adiacent.it`,
       photoURL: `https://api.dicebear.com/7.x/pixel-art/svg?seed=${seed}`
     };
-    
+
     onLoginSuccess(mockUser);
   };
 
   return (
     <div className="login-screen">
       <div className="logo-container">
-        <img 
-          src="/icon-192.png" 
-          alt="Fanta Adiacent Logo" 
+        <img
+          src="/icon-512.png"
+          alt="Fanta Adiacent Logo"
           className="logo-img"
         />
         <h1 className="login-title">Fanta Adiacent 🏆</h1>
@@ -59,9 +59,9 @@ export default function Login({ onLoginSuccess, showToast }) {
           <div>
             <h2 style={{ fontSize: '18px', marginBottom: '16px' }}>Accedi per Giocare 🎮</h2>
             <button className="btn btn-google" onClick={handleGoogleLogin}>
-              <img 
-                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
-                alt="Google" 
+              <img
+                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                alt="Google"
                 style={{ width: '18px', height: '18px' }}
               />
               Accedi con Google
@@ -79,14 +79,14 @@ export default function Login({ onLoginSuccess, showToast }) {
 
             <div className="avatar-selector">
               {MOCK_AVATARS.map((avatar, idx) => (
-                <div 
+                <div
                   key={avatar.seed}
                   className={`avatar-option ${selectedAvatarIdx === idx ? 'selected' : ''}`}
                   onClick={() => setSelectedAvatarIdx(idx)}
                 >
-                  <img 
-                    src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=${avatar.seed}`} 
-                    alt={avatar.name} 
+                  <img
+                    src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=${avatar.seed}`}
+                    alt={avatar.name}
                     className="avatar-img"
                   />
                 </div>
