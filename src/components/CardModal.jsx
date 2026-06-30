@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import Card from './Card';
+import Card, { getRarityIcon } from './Card';
 import { claimCapture } from '../firebase/db';
 import { Camera, Send, X } from 'lucide-react';
 
@@ -48,9 +48,17 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
     }
   };
 
-  const rarityLabel = card.rarity === 'ultrarara' ? '👑 Ultra Rara' :
-                      card.rarity === 'rara' ? '⭐ Rara' :
-                      card.rarity === 'noncomune' ? '🟢 Non Comune' : '⚪ Comune';
+  const renderRarityLabel = () => {
+    const icon = getRarityIcon(card.rarity, 14);
+    const text = card.rarity === 'ultrarara' ? 'Ultra Rara' :
+                 card.rarity === 'rara' ? 'Rara' :
+                 card.rarity === 'noncomune' ? 'Non Comune' : 'Comune';
+    return (
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+        {icon} {text}
+      </span>
+    );
+  };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -68,7 +76,7 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
             <div className="modal-title-row">
               <h2>{card.name}</h2>
               <span className={`modal-card-rarity-tag rarity-badge ${card.rarity}`}>
-                {rarityLabel}
+                {renderRarityLabel()}
               </span>
             </div>
 

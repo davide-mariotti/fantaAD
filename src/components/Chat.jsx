@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getRarityIcon } from './Card';
 import { 
   listenToMessages, 
   sendTextMessage, 
@@ -168,9 +169,12 @@ export default function Chat({ user }) {
                 <div className="claim-header">
                   <span className="claim-title">📸 Cattura Richiesta!</span>
                   <span className={`claim-rarity-badge rarity-badge ${msg.cardRarity}`}>
-                    {msg.cardRarity === 'ultrarara' ? '👑 Ultra Rara' :
-                     msg.cardRarity === 'rara' ? '⭐ Rara' :
-                     msg.cardRarity === 'noncomune' ? '🟢 Non Comune' : '⚪ Comune'}
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      {getRarityIcon(msg.cardRarity, 11)}
+                      {msg.cardRarity === 'ultrarara' ? 'Ultra Rara' :
+                       msg.cardRarity === 'rara' ? 'Rara' :
+                       msg.cardRarity === 'noncomune' ? 'Non Comune' : 'Comune'}
+                    </span>
                   </span>
                 </div>
                 <img 
@@ -201,16 +205,18 @@ export default function Chat({ user }) {
                       <button 
                         className={`btn-vote approve ${hasApproved ? 'active' : ''}`}
                         onClick={() => handleVote(msg.id, 'approve')}
+                        style={{ fontSize: '18px', padding: '10px' }}
+                        aria-label="Approva"
                       >
-                        <Check size={16} />
-                        🟢 Approva ({totalApprovals})
+                        ✅
                       </button>
                       <button 
                         className={`btn-vote reject ${hasRejected ? 'active' : ''}`}
                         onClick={() => handleVote(msg.id, 'reject')}
+                        style={{ fontSize: '18px', padding: '10px' }}
+                        aria-label="Rifiuta"
                       >
-                        <X size={16} />
-                        🔴 Falso ({msg.rejections?.length || 0})
+                        ❌
                       </button>
                     </div>
                   ) : (

@@ -255,23 +255,17 @@ export const voteOnClaim = async (user, messageId, voteType) => {
     if (!msg.approvals) msg.approvals = [];
     if (!msg.rejections) msg.rejections = [];
 
-    // Apply vote toggle rules
-    if (voteType === 'approve') {
-      if (msg.approvals.includes(userId)) {
-        msg.approvals = msg.approvals.filter(uid => uid !== userId);
-      } else {
-        msg.approvals.push(userId);
-        msg.rejections = msg.rejections.filter(uid => uid !== userId);
-      }
-    } else if (voteType === 'reject') {
-      if (msg.rejections.includes(userId)) {
-        msg.rejections = msg.rejections.filter(uid => uid !== userId);
-      } else {
-        msg.rejections.push(userId);
-        msg.approvals = msg.approvals.filter(uid => uid !== userId);
-      }
+    // Apply strict non-retractable voting rules (no toggles, no mind-changing)
+    if (msg.approvals.includes(userId) || msg.rejections.includes(userId)) {
+      return; // Vote is locked and final!
     }
 
+    if (voteType === 'approve') {
+      msg.approvals.push(userId);
+    } else if (voteType === 'reject') {
+      msg.rejections.push(userId);
+    }
+  
     // Check if approved (>= 5 approvals)
     if (msg.approvals.length >= 5) {
       await unlockCardDemo(msg.senderId, msg.cardId, msg.cardName, msg.cardPoints);
@@ -293,20 +287,15 @@ export const voteOnClaim = async (user, messageId, voteType) => {
     let approvals = msg.approvals || [];
     let rejections = msg.rejections || [];
 
+    // Apply strict non-retractable voting rules in production
+    if (approvals.includes(userId) || rejections.includes(userId)) {
+      return; // Vote is locked and final!
+    }
+
     if (voteType === 'approve') {
-      if (approvals.includes(userId)) {
-        approvals = approvals.filter(uid => uid !== userId);
-      } else {
-        approvals.push(userId);
-        rejections = rejections.filter(uid => uid !== userId);
-      }
+      approvals.push(userId);
     } else if (voteType === 'reject') {
-      if (rejections.includes(userId)) {
-        rejections = rejections.filter(uid => uid !== userId);
-      } else {
-        rejections.push(userId);
-        approvals = approvals.filter(uid => uid !== userId);
-      }
+      rejections.push(userId);
     }
 
     const updates = { approvals, rejections };
