@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
-// Default 10 mythic cards to seed the application
+// Default 20 mythic cards to seed the application
 export const INITIAL_CARDS = [
   {
     id: 'dev_crisi',
@@ -94,6 +94,96 @@ export const INITIAL_CARDS = [
     description: 'La leggenda narra che sia in grado di approvare aumenti di stipendio con un solo battito di ciglia. Trovarlo di buon umore sblocca bonus passivi a tutti.',
     challenge: '📸 Fotografa il CEO sorridente in corridoio o durante un momento informale di brindisi aziendale.',
     imageUrl: 'images/ceo_boss.png'
+  },
+  {
+    id: 'marketing_bullshit',
+    name: '📢 Il Bullshitter del Marketing',
+    rarity: 'noncomune',
+    points: 25,
+    description: 'Capace di vendere fumo liquido. Parla solo tramite termini come "funnel", "brand awareness", "KPI value" e "engagement disruption" senza conoscerne il significato.',
+    challenge: '📸 Fotografa una slide o mail aziendale contenente almeno 5 inglesismi di marketing consecutivi.',
+    imageUrl: 'images/marketing_bullshit.png'
+  },
+  {
+    id: 'snack_devourer',
+    name: '🍪 Il Divoratore di Snack',
+    rarity: 'comune',
+    points: 10,
+    description: 'Sopravvive esclusivamente grazie a merendine industriali e bibite zuccherate. Le briciole depositate sotto la sua tastiera potrebbero sfamare una piccola nazione.',
+    challenge: '📸 Fotografa la scrivania di un collega sommersa da almeno 3 involucri vuoti di snack o lattine.',
+    imageUrl: 'images/snack_devourer.png'
+  },
+  {
+    id: 'smart_working_illusion',
+    name: '🦥 L\'Illusionista dello Smart Working',
+    rarity: 'rara',
+    points: 50,
+    description: 'Ufficialmente operativo da casa, in realtà la leggenda narra che imposti movimenti automatici sul mouse per rimanere sempre verde "Attivo" su Teams mentre dorme.',
+    challenge: '📸 Fotografa lo stato Teams/Slack di un collega verde "Disponibile" che non risponde a 3 messaggi diretti da oltre un\'ora.',
+    imageUrl: 'images/smart_working_illusion.png'
+  },
+  {
+    id: 'intern_exploited',
+    name: '🎒 Lo Stagista Eroe',
+    rarity: 'comune',
+    points: 10,
+    description: 'Carico di speranze, sogni e qualifiche accademiche. Ignora ancora che il suo compito principale per i prossimi 6 mesi sarà formattare infinite tabelle Excel.',
+    challenge: '📸 Fotografa un tirocinante/stagista che trasporta un carico sproporzionato di caffè o faldoni cartacei.',
+    imageUrl: 'images/intern_exploited.png'
+  },
+  {
+    id: 'screenshot_thief',
+    name: '📱 L\'Uomo PrintScreen',
+    rarity: 'noncomune',
+    points: 20,
+    description: 'Invece di inviare stringhe di testo o log condivisibili, preferisce mandare screenshot sfocati scattando una foto al monitor col suo cellulare.',
+    challenge: '📸 Cattura uno screenshot in chat in cui un collega ti ha risposto inviando la foto del proprio monitor fatta con lo smartphone.',
+    imageUrl: 'images/screenshot_thief.png'
+  },
+  {
+    id: 'excel_guru',
+    name: '📊 Il Mago delle Pivot',
+    rarity: 'noncomune',
+    points: 30,
+    description: 'Gestisce database da milioni di righe interamente su fogli Excel che crasciano a ogni click. Considera i database SQL moderni un lusso tecnologico inutile.',
+    challenge: '📸 Fotografa uno schermo con un foglio Excel contenente formule gigantesche o formattazioni condizionali pastello inguardabili.',
+    imageUrl: 'images/excel_guru.png'
+  },
+  {
+    id: 'office_phantom',
+    name: '👻 Il Fantasma dell\'Ufficio',
+    rarity: 'rara',
+    points: 45,
+    description: 'Timbra il cartellino, lascia la giacca sulla sedia per fingere presenza attiva, ma scompare misteriosamente nei corridoi per ore intere.',
+    challenge: '📸 Fotografa una scrivania vuota con giacca appesa, PC acceso e tazza calda, ma nessun dipendente visibile per più di 30 minuti.',
+    imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    id: 'vacation_mode',
+    name: '🏖️ Modalità Ferie Attiva',
+    rarity: 'comune',
+    points: 15,
+    description: 'Mancano ancora settimane alle sue vacanze, ma la sua mente è già su una spiaggia tropicale. Risponde a qualsiasi mail con "Ok, ne parliamo al mio rientro".',
+    challenge: '📸 Fotografa lo schermo di un collega fermo su siti di ricerca voli low-cost o offerte vacanze durante l\'orario lavorativo.',
+    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    id: 'ancient_hardware',
+    name: '⚙️ Il Portatile Aeronautico',
+    rarity: 'noncomune',
+    points: 25,
+    description: 'Un laptop aziendale obsoleto che emette un rumore simile a un caccia militare non appena si avviano tre schede di Chrome. Riscalda gli uffici in inverno.',
+    challenge: '📸 Fotografa un computer aziendale con prese polverose e ventole rumorose bloccato in caricamento infinito.',
+    imageUrl: 'https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    id: 'hr_deity',
+    name: '🧘‍♀️ La Divinità degli HR',
+    rarity: 'ultrarara',
+    points: 95,
+    description: 'Una creatura mistica che si manifesta solo per promuovere sondaggi sulla felicità aziendale, corsi di mindfulness obbligatori e borracce termiche logate.',
+    challenge: '📸 Fotografa un gadget aziendale brandizzato Fanta Adiacent (tazza, agenda, borraccia) posizionato in un luogo surreale o insolito.',
+    imageUrl: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80'
   }
 ];
 
