@@ -7,7 +7,7 @@ import Chat from './components/Chat';
 import Leaderboard from './components/Leaderboard';
 import UserProfile from './components/UserProfile';
 import { auth, isDemoMode } from './firebase/config';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut, getRedirectResult } from 'firebase/auth';
 import { registerUser, getUserProfile } from './firebase/db';
 
 export default function App() {
@@ -39,6 +39,19 @@ export default function App() {
         setLoading(false);
       }
     } else {
+      // Catch any redirect result from Google login
+      getRedirectResult(auth)
+        .then(async (result) => {
+          if (result?.user) {
+            setCurrentUser(result.user);
+            await syncDbUser(result.user);
+          }
+        })
+        .catch((error) => {
+          console.error("Errore login redirect:", error);
+          showToast("Impossibile accedere con Google. ❌", "error");
+        });
+
       // Real Firebase Auth listener
       const unsubscribe = onAuthStateChanged(auth, async (user) => {
         if (user) {

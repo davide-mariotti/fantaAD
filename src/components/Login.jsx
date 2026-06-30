@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
 import { auth, isDemoMode } from '../firebase/config';
 
 // 5 pre-made office avatars to select in Demo Mode
@@ -18,11 +18,11 @@ export default function Login({ onLoginSuccess, showToast }) {
   const handleGoogleLogin = async () => {
     try {
       const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      onLoginSuccess(result.user);
+      // Use redirect instead of popup for mobile compatibility (avoids iOS popup blockers)
+      await signInWithRedirect(auth, provider);
     } catch (error) {
       console.error('Errore Google Sign-in:', error);
-      showToast('Impossibile accedere con Google. Verifica la console. ❌', 'error');
+      showToast('Impossibile accedere con Google. ❌', 'error');
     }
   };
 
