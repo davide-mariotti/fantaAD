@@ -46,7 +46,7 @@ export default function Login({ onLoginSuccess, showToast }) {
     <div className="login-screen">
       <div className="logo-container">
         <img
-          src="/icon-512.png"
+          src="/fantaAD/icon-512.png"
           alt="Fanta Adiacent Logo"
           className="logo-img"
         />
