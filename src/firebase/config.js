@@ -156,7 +156,7 @@ export const INITIAL_CARDS = [
     points: 45,
     description: 'Timbra il cartellino, lascia la giacca sulla sedia per fingere presenza attiva, ma scompare misteriosamente nei corridoi per ore intere.',
     challenge: '📸 Fotografa una scrivania vuota con giacca appesa, PC acceso e tazza calda, ma nessun dipendente visibile per più di 30 minuti.',
-    imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80'
+    imageUrl: 'images/office_phantom.png'
   },
   {
     id: 'vacation_mode',
@@ -165,7 +165,7 @@ export const INITIAL_CARDS = [
     points: 15,
     description: 'Mancano ancora settimane alle sue vacanze, ma la sua mente è già su una spiaggia tropicale. Risponde a qualsiasi mail con "Ok, ne parliamo al mio rientro".',
     challenge: '📸 Fotografa lo schermo di un collega fermo su siti di ricerca voli low-cost o offerte vacanze durante l\'orario lavorativo.',
-    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80'
+    imageUrl: 'images/vacation_mode.png'
   },
   {
     id: 'ancient_hardware',
@@ -174,7 +174,7 @@ export const INITIAL_CARDS = [
     points: 25,
     description: 'Un laptop aziendale obsoleto che emette un rumore simile a un caccia militare non appena si avviano tre schede di Chrome. Riscalda gli uffici in inverno.',
     challenge: '📸 Fotografa un computer aziendale con prese polverose e ventole rumorose bloccato in caricamento infinito.',
-    imageUrl: 'https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=400&q=80'
+    imageUrl: 'images/ancient_hardware.png'
   },
   {
     id: 'hr_deity',
@@ -183,7 +183,52 @@ export const INITIAL_CARDS = [
     points: 95,
     description: 'Una creatura mistica che si manifesta solo per promuovere sondaggi sulla felicità aziendale, corsi di mindfulness obbligatori e borracce termiche logate.',
     challenge: '📸 Fotografa un gadget aziendale brandizzato Fanta Adiacent (tazza, agenda, borraccia) posizionato in un luogo surreale o insolito.',
-    imageUrl: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80'
+    imageUrl: 'images/hr_deity.png'
+  },
+  {
+    id: 'micro_manager',
+    name: '🔍 Il Micro-Manager',
+    rarity: 'rara',
+    points: 50,
+    description: 'Controlla l\'orario di login con precisione millisecondale. Respira letteralmente sul collo dei dipendenti.',
+    challenge: '📸 Fotografa un manager mentre osserva lo schermo di un collega da dietro le sue spalle.',
+    imageUrl: 'images/micro_manager.png'
+  },
+  {
+    id: 'ping_pong_champion',
+    name: '🏓 Il Campione di Ping Pong',
+    rarity: 'comune',
+    points: 15,
+    description: 'Re indiscusso della sala break. Indossa il badge come una medaglia olimpica e schiaccia senza pietà contro gli stagisti.',
+    challenge: '📸 Fotografa un dipendente in posa trionfale con una racchetta da ping pong o calcio balilla.',
+    imageUrl: 'images/ping_pong_champion.png'
+  },
+  {
+    id: 'chat_spammer',
+    name: '💬 Lo Spammone Aziendale',
+    rarity: 'comune',
+    points: 10,
+    description: 'Invia messaggi su Teams scrivendo. Una. Parola. Alla. Volta. Il suo superpotere è far vibrare il telefono 20 volte per un "Ciao".',
+    challenge: '📸 Fai uno screenshot a una chat dove un collega ha mandato almeno 5 messaggi consecutivi di una sola parola.',
+    imageUrl: 'images/chat_spammer.png'
+  },
+  {
+    id: 'apple_evangelist',
+    name: '🍎 L\'Adepto della Mela',
+    rarity: 'noncomune',
+    points: 25,
+    description: 'Rifiuta di toccare qualsiasi dispositivo che non abbia una mela morsicata. Parla dell\'ecosistema Apple come di una religione.',
+    challenge: '📸 Fotografa una scrivania con laptop, tablet, telefono e orologio tutti rigorosamente dello stesso brand.',
+    imageUrl: 'images/apple_evangelist.png'
+  },
+  {
+    id: 'badge_forgetter',
+    name: '💳 Il Dimenticatore di Badge',
+    rarity: 'comune',
+    points: 10,
+    description: 'Ogni mattina è un\'avventura per entrare in ufficio. Passa i primi 10 minuti ad aspettare che qualcuno gli apra la porta del tornello.',
+    challenge: '📸 Fotografa un collega fermo davanti al tornello o alla porta d\'ingresso in attesa di essere salvato.',
+    imageUrl: 'images/badge_forgetter.png'
   }
 ];
 
