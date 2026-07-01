@@ -229,6 +229,24 @@ export const INITIAL_CARDS = [
     description: 'Ogni mattina è un\'avventura per entrare in ufficio. Passa i primi 10 minuti ad aspettare che qualcuno gli apra la porta del tornello.',
     challenge: '📸 Fotografa un collega fermo davanti al tornello o alla porta d\'ingresso in attesa di essere salvato.',
     imageUrl: 'images/badge_forgetter.png'
+  },
+  {
+    id: 'mute_microphone',
+    name: '🔇 Il Microfonista Muto',
+    rarity: 'comune',
+    points: 10,
+    description: 'Parla appassionatamente e gesticola in videochiamata, dispensando saggezza, ma il suo microfono è inesorabilmente spento.',
+    challenge: '📸 Fai uno screenshot a un collega in videochiamata mentre parla con l\'icona del microfono silenziato visibile.',
+    imageUrl: 'images/mute_microphone.png'
+  },
+  {
+    id: 'printer_oracle',
+    name: '🖨️ L\'Oracolo della Stampante',
+    rarity: 'rara',
+    points: 60,
+    description: 'L\'unica entità mistica in grado di scacciare l\'errore "Inceppamento carta nel cassetto 2" e sostituire il toner senza esplosioni di polvere nera.',
+    challenge: '📸 Fotografa un collega (possibilmente in posa solenne) mentre estrae un foglio o un toner dalla stampante aziendale.',
+    imageUrl: 'images/printer_oracle.png'
   }
 ];
 
