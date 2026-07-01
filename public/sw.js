@@ -1,14 +1,17 @@
-const CACHE_NAME = 'fanta-adiacent-v1';
+const CACHE_NAME = 'fanta-adiacent-v2';
 const ASSETS = [
   './',
-  'index.html',
-  'manifest.json',
-  'icon-192.png',
-  'icon-512.png',
+  './index.html',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png',
 ];
 
 // Install Service Worker
 self.addEventListener('install', (e) => {
+  // Force the waiting service worker to become the active service worker.
+  self.skipWaiting();
+  
   e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[Service Worker] Caching app shell');
@@ -19,6 +22,9 @@ self.addEventListener('install', (e) => {
 
 // Activate Service Worker
 self.addEventListener('activate', (e) => {
+  // Claim any clients immediately so we don't need a reload
+  e.waitUntil(self.clients.claim());
+  
   e.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
@@ -54,7 +60,7 @@ self.addEventListener('fetch', (e) => {
         return response;
       }).catch(() => {
         // Fallback for offline images or page
-        return caches.match('/index.html');
+        return caches.match('./index.html');
       });
     })
   );
