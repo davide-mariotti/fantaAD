@@ -247,6 +247,33 @@ export const INITIAL_CARDS = [
     description: 'L\'unica entità mistica in grado di scacciare l\'errore "Inceppamento carta nel cassetto 2" e sostituire il toner senza esplosioni di polvere nera.',
     challenge: '📸 Fotografa un collega (possibilmente in posa solenne) mentre estrae un foglio o un toner dalla stampante aziendale.',
     imageUrl: 'images/printer_oracle.png'
+  },
+  {
+    id: 'pen_thief',
+    name: '🖊️ Il Ladro di Penne',
+    rarity: 'noncomune',
+    points: 25,
+    description: 'Ti giri un attimo per prendere un caffè e la tua penna preferita scompare per sempre nel nulla. Il suo cassetto è un tesoro di cancelleria.',
+    challenge: '📸 Fotografa di nascosto un collega che sta usando una penna che sai per certo non essere la sua.',
+    imageUrl: 'images/pen_thief.png'
+  },
+  {
+    id: 'wifi_shaman',
+    name: '📡 Lo Sciamano del Wi-Fi',
+    rarity: 'rara',
+    points: 50,
+    description: 'Quando la rete cade, lui alza il portatile al cielo ed esegue un rito mistico avvicinandosi al router. Stranamente, funziona.',
+    challenge: '📸 Fotografa un collega che solleva o inclina il laptop/telefono in posizioni assurde sperando di prendere campo.',
+    imageUrl: 'images/wifi_shaman.png'
+  },
+  {
+    id: 'break_marathoner',
+    name: '🏃‍♂️ Il Maratoneta delle Pause',
+    rarity: 'ultrarara',
+    points: 80,
+    description: 'Dice "Vado un attimo alla macchinetta del caffè" e scompare nei meandri dello spazio-tempo per ore.',
+    challenge: '📸 Fotografa la scrivania vuota di un collega che si è alzato "solo per un caffè" e non è tornato dopo 45 minuti.',
+    imageUrl: 'images/break_marathoner.png'
   }
 ];
 
