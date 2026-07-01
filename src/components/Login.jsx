@@ -45,7 +45,7 @@ export default function Login({ onLoginSuccess, showToast }) {
 
   return (
     <div className="login-screen">
-      <div className="logo-container">
+      <div className="logo-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
         <img
           src="/fantaAD/icon-512.png"
           alt="Fanta Adiacent Logo"

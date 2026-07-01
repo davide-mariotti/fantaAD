@@ -9,6 +9,8 @@ import UserProfile from './components/UserProfile';
 import { auth, isDemoMode } from './firebase/config';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { registerUser, getUserProfile } from './firebase/db';
+import RulesModal from './components/RulesModal';
+import { Info } from 'lucide-react';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -18,6 +20,7 @@ export default function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [loading, setLoading] = useState(true);
   const [toast, setToast] = useState({ message: '', show: false, type: 'info' });
+  const [showRules, setShowRules] = useState(false);
 
   const showToast = (message, type = 'info') => {
     setToast({ message, show: true, type });
@@ -200,14 +203,23 @@ export default function App() {
       {currentView !== 'chat' && (
         <header style={{ padding: '16px 16px 8px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h1>🏆 Fanta Adiacent</h1>
-          <span style={{ fontSize: '13px', background: 'var(--bg-glass)', padding: '4px 10px', borderRadius: '12px', fontWeight: 'bold', color: 'var(--secondary)' }}>
-            💎 {dbUser.score || 0} pts
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <button 
+              className="btn btn-outline" 
+              style={{ padding: '4px', border: 'none', background: 'transparent' }}
+              onClick={() => setShowRules(true)}
+            >
+              <Info size={22} color="var(--primary)" />
+            </button>
+            <span style={{ fontSize: '13px', background: 'var(--bg-glass)', padding: '4px 10px', borderRadius: '12px', fontWeight: 'bold', color: 'var(--secondary)' }}>
+              💎 {dbUser.score || 0} pts
+            </span>
+          </div>
         </header>
       )}
 
       {/* Main page content area */}
-      <main className="main-content">
+      <main className={`main-content ${currentView === 'chat' ? 'no-scroll' : ''}`}>
         {renderViewContent()}
       </main>
 
@@ -220,6 +232,9 @@ export default function App() {
         setCurrentView(view);
         reloadDbUser();
       }} />
+
+      {/* Rules Modal */}
+      {showRules && <RulesModal onClose={() => setShowRules(false)} />}
 
       {/* Shared detail modal for any card */}
       {selectedCard && (
