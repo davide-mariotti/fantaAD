@@ -73,7 +73,7 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
               <Card card={card} isUnlocked={isUnlocked} />
             </div>
 
-            <div className="modal-title-row">
+            <div className="modal-title-row" style={{ alignItems: 'center' }}>
               <h2>{card.name}</h2>
               <span className={`modal-card-rarity-tag rarity-badge ${card.rarity}`}>
                 {renderRarityLabel()}
@@ -81,7 +81,7 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
             </div>
 
             <div>
-              <div className="modal-label">📜 Descrizione / Lore</div>
+              <div className="modal-label">📜 Descrizione</div>
               <div className="modal-value-box">{card.description}</div>
             </div>
 
@@ -114,7 +114,7 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
                 onClick={() => setIsClaiming(true)}
               >
                 <Camera size={18} />
-                Cattura Creatura 📸
+                Cattura Creatura
               </button>
             )}
           </div>
@@ -171,7 +171,7 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
                   ) : (
                     <>
                       <Send size={16} />
-                      Invia Prova 🚀
+                      Invia Prova
                     </>
                   )}
                 </button>

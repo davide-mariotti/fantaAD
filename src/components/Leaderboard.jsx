@@ -38,7 +38,7 @@ export default function Leaderboard({ onUserSelect }) {
           🏆 Classifica Globale
         </h2>
         <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-          Clicca su un utente per ispezionare il suo album di carte sbloccate! 🔍📖
+          Clicca su un utente per ispezionare il suo album
         </p>
       </div>
 

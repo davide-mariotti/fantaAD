@@ -61,13 +61,13 @@ export default function CardGrid({ unlockedCards, onCardClick }) {
       </div>
 
       {/* Rarity Filters */}
-      <div className="filter-tabs" style={{ marginTop: '-8px', marginBottom: '20px' }}>
+      <div className="filter-tabs" style={{ marginTop: '-8px', marginBottom: '20px', overflowX: 'auto', whiteSpace: 'nowrap' }}>
         <button 
           className={`tab-btn ${rarityFilter === 'all' ? 'active' : ''}`}
           onClick={() => setRarityFilter('all')}
           style={{ fontSize: '11px', padding: '6px 12px' }}
         >
-          🌈 Tutte Rarità
+          🌈 Tutte
         </button>
         <button 
           className={`tab-btn ${rarityFilter === 'comune' ? 'active' : ''}`}

@@ -142,9 +142,17 @@ export default function Chat({ user }) {
           💬 Chat di Gruppo Adiacent
         </h2>
         {isDemoMode && (
-          <span style={{ fontSize: '11px', background: 'rgba(255,255,255,0.06)', padding: '4px 8px', borderRadius: '20px' }}>
-            ⚡ Demo Mode Active
-          </span>
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            <button 
+              onClick={() => { localStorage.removeItem('fanta_adiacent_messages'); window.location.reload(); }} 
+              style={{ fontSize: '11px', background: 'var(--primary)', color: 'white', padding: '4px 8px', borderRadius: '4px', cursor: 'pointer', border: 'none' }}
+            >
+              🧹 Pulisci Chat
+            </button>
+            <span style={{ fontSize: '11px', background: 'rgba(255,255,255,0.06)', padding: '4px 8px', borderRadius: '20px' }}>
+              ⚡ Demo Mode Active
+            </span>
+          </div>
         )}
       </div>
 
@@ -278,21 +286,6 @@ export default function Chat({ user }) {
       </div>
 
       <form onSubmit={handleSendText} className="chat-input-panel">
-        <input 
-          type="file" 
-          accept="image/*"
-          ref={fileInputRef}
-          onChange={handlePhotoUpload}
-          style={{ display: 'none' }}
-        />
-        <button 
-          type="button" 
-          className="chat-btn-icon"
-          onClick={() => fileInputRef.current.click()}
-          aria-label="Invia foto"
-        >
-          <Image size={20} />
-        </button>
         <input
           type="text"
           placeholder="Scrivi qualcosa in chat..."
