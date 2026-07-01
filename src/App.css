@@ -233,10 +233,11 @@ h1 {
 }
 
 .avatar-selector {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 16px;
+  overflow-x: auto;
 }
 
 .avatar-option {
