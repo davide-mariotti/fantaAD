@@ -7,7 +7,7 @@ import {
   simulateApprovals,
   claimCapture
 } from '../firebase/db';
-import { isDemoMode } from '../firebase/config';
+import { isDemoMode, INITIAL_CARDS } from '../firebase/config';
 import { Send, Image, Check, X, ShieldCheck } from 'lucide-react';
 
 export default function Chat({ user }) {
@@ -194,6 +194,9 @@ export default function Chat({ user }) {
                   <div className="claim-info-text">
                     <strong>@{msg.senderName}</strong> afferma di aver trovato la creatura: <br />
                     <span style={{ color: 'white', fontWeight: 'bold' }}>{msg.cardName}</span>
+                    <div style={{ marginTop: '8px', fontSize: '11px', color: '#d6bcfa', background: 'rgba(214, 188, 250, 0.1)', padding: '6px', borderRadius: '4px', border: '1px solid rgba(214, 188, 250, 0.2)' }}>
+                      <strong>🎯 Sfida:</strong> {INITIAL_CARDS.find(c => c.id === msg.cardId)?.challenge || 'Fotografa la creatura.'}
+                    </div>
                   </div>
 
                   <div className="claim-progress-bar-container">
