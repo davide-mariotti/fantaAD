@@ -62,30 +62,44 @@ export default function Login({ onLoginSuccess, showToast }) {
       <div className="glass-panel login-card">
         {!isDemoMode ? (
           <div>
-            <h2 style={{ fontSize: '18px', marginBottom: '16px' }}>Accedi per Giocare 🎮</h2>
-            <button className="btn btn-google" onClick={handleGoogleLogin}>
-              <img
-                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-                alt="Google"
-                style={{ width: '18px', height: '18px' }}
-              />
-              Accedi con Google
-            </button>
-            <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-              Accedi in sicurezza tramite Google per sincronizzare le tue catture! 🔒
-            </p>
-            {isMobile && !isStandalone && (
-              <div style={{ marginTop: '24px', padding: '12px', background: 'rgba(236, 201, 75, 0.1)', border: '1px solid rgba(236, 201, 75, 0.3)', borderRadius: '12px', textAlign: 'left' }}>
-                <h3 style={{ fontSize: '13px', color: '#ecc94b', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  📱 Problemi col Login? Installa l'App!
-                </h3>
-                <p style={{ fontSize: '11px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                  I browser dei social o in incognito bloccano il login Google. Installa l'app per risolvere:
+            {(isMobile && !isStandalone) ? (
+              <div style={{ textAlign: 'center' }}>
+                <h2 style={{ fontSize: '18px', marginBottom: '16px', color: '#ecc94b' }}>
+                  📱 Installa l'App per Giocare!
+                </h2>
+                <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5', marginBottom: '20px' }}>
+                  I browser in-app (es. Instagram) bloccano il login Google.<br />
+                  Devi installare Fanta Adiacent per accedere.
                 </p>
-                <ul style={{ fontSize: '11px', color: 'var(--text-muted)', paddingLeft: '16px', marginTop: '6px', lineHeight: '1.5' }}>
-                  <li><strong>iOS (Safari):</strong> Tocca l'icona Condividi (quadrato con freccia) e scegli "Aggiungi alla schermata Home".</li>
-                  <li><strong>Android (Chrome):</strong> Tocca i 3 puntini in alto a destra e scegli "Aggiungi a schermata Home".</li>
-                </ul>
+                
+                <div style={{ background: 'rgba(255,255,255,0.05)', padding: '16px', borderRadius: '12px', textAlign: 'left', display: 'inline-block', width: '100%' }}>
+                  <h3 style={{ fontSize: '14px', marginBottom: '8px' }}>🍎 iPhone (Safari):</h3>
+                  <ul style={{ fontSize: '12px', color: 'var(--text-muted)', paddingLeft: '20px', marginBottom: '16px' }}>
+                    <li>Tocca l'icona <strong>Condividi</strong> (quadrato con freccia)</li>
+                    <li>Scegli <strong>"Aggiungi alla schermata Home"</strong></li>
+                  </ul>
+                  
+                  <h3 style={{ fontSize: '14px', marginBottom: '8px' }}>🤖 Android (Chrome):</h3>
+                  <ul style={{ fontSize: '12px', color: 'var(--text-muted)', paddingLeft: '20px' }}>
+                    <li>Tocca i <strong>3 puntini</strong> in alto a destra</li>
+                    <li>Scegli <strong>"Aggiungi a schermata Home"</strong></li>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <div style={{ textAlign: 'center' }}>
+                <h2 style={{ fontSize: '18px', marginBottom: '16px' }}>Accedi per Giocare 🎮</h2>
+                <button className="btn btn-google" onClick={handleGoogleLogin}>
+                  <img
+                    src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                    alt="Google"
+                    style={{ width: '18px', height: '18px' }}
+                  />
+                  Accedi con Google
+                </button>
+                <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                  Accedi in sicurezza tramite Google per sincronizzare le tue catture! 🔒
+                </p>
               </div>
             )}
           </div>
