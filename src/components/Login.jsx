@@ -15,6 +15,9 @@ export default function Login({ onLoginSuccess, showToast }) {
   const [customName, setCustomName] = useState('');
   const [selectedAvatarIdx, setSelectedAvatarIdx] = useState(0);
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+
   const handleGoogleLogin = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -71,6 +74,20 @@ export default function Login({ onLoginSuccess, showToast }) {
             <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
               Accedi in sicurezza tramite Google per sincronizzare le tue catture! 🔒
             </p>
+            {isMobile && !isStandalone && (
+              <div style={{ marginTop: '24px', padding: '12px', background: 'rgba(236, 201, 75, 0.1)', border: '1px solid rgba(236, 201, 75, 0.3)', borderRadius: '12px', textAlign: 'left' }}>
+                <h3 style={{ fontSize: '13px', color: '#ecc94b', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  📱 Problemi col Login? Installa l'App!
+                </h3>
+                <p style={{ fontSize: '11px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+                  I browser dei social o in incognito bloccano il login Google. Installa l'app per risolvere:
+                </p>
+                <ul style={{ fontSize: '11px', color: 'var(--text-muted)', paddingLeft: '16px', marginTop: '6px', lineHeight: '1.5' }}>
+                  <li><strong>iOS (Safari):</strong> Tocca l'icona Condividi (quadrato con freccia) e scegli "Aggiungi alla schermata Home".</li>
+                  <li><strong>Android (Chrome):</strong> Tocca i 3 puntini in alto a destra e scegli "Aggiungi a schermata Home".</li>
+                </ul>
+              </div>
+            )}
           </div>
         ) : (
           <form onSubmit={handleDemoLogin}>

@@ -20,7 +20,14 @@ export default function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [loading, setLoading] = useState(true);
   const [toast, setToast] = useState({ message: '', show: false, type: 'info' });
-  const [showRules, setShowRules] = useState(false);
+  const [showRules, setShowRules] = useState(() => {
+    return localStorage.getItem('fanta_rules_seen') !== 'true';
+  });
+
+  const handleCloseRules = () => {
+    localStorage.setItem('fanta_rules_seen', 'true');
+    setShowRules(false);
+  };
 
   const showToast = (message, type = 'info') => {
     setToast({ message, show: true, type });
@@ -234,7 +241,7 @@ export default function App() {
       }} />
 
       {/* Rules Modal */}
-      {showRules && <RulesModal onClose={() => setShowRules(false)} />}
+      {showRules && <RulesModal onClose={handleCloseRules} />}
 
       {/* Shared detail modal for any card */}
       {selectedCard && (
