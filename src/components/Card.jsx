@@ -16,7 +16,7 @@ export const getRarityIcon = (rarity, size = 14) => {
   }
 };
 
-export default function Card({ card, isUnlocked, onClick }) {
+export default function Card({ card, isUnlocked, onClick, unlockDate }) {
   const { name, rarity, points, imageUrl } = card;
 
   // Format rarity label with custom icons
@@ -55,9 +55,14 @@ export default function Card({ card, isUnlocked, onClick }) {
         <span className={`pokemon-card-rarity rarity-badge ${rarity}`}>
           {renderRarityLabel()}
         </span>
-        <span style={{ fontSize: '12px' }}>
-          {isUnlocked ? '🔓 Attiva' : '🔒 Bloccata'}
-        </span>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', fontSize: '12px' }}>
+          <span>{isUnlocked ? '🔓 Attiva' : '🔒 Bloccata'}</span>
+          {unlockDate && (
+            <span style={{ fontSize: '9px', opacity: 0.7, marginTop: '2px' }}>
+              {new Date(unlockDate).toLocaleDateString('it-IT')}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

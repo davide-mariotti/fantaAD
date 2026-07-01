@@ -342,6 +342,8 @@ const unlockCardDemo = async (userId, cardId, cardName, cardPoints) => {
   // Ensure card not already unlocked
   if (!user.unlockedCards.includes(cardId)) {
     user.unlockedCards.push(cardId);
+    if (!user.unlockedDates) user.unlockedDates = {};
+    user.unlockedDates[cardId] = Date.now();
     user.score += cardPoints;
     saveLocalUsers(users);
 
@@ -365,13 +367,16 @@ const unlockCardFirebase = async (userId, cardId, cardName, cardPoints) => {
 
   const userData = userSnap.data();
   const unlockedCards = userData.unlockedCards || [];
+  const unlockedDates = userData.unlockedDates || {};
 
   if (!unlockedCards.includes(cardId)) {
     unlockedCards.push(cardId);
+    unlockedDates[cardId] = Date.now();
     const newScore = (userData.score || 0) + cardPoints;
 
     await updateDoc(userRef, {
       unlockedCards,
+      unlockedDates,
       score: newScore
     });
 

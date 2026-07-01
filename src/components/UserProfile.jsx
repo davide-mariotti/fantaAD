@@ -82,14 +82,14 @@ export default function UserProfile({ targetUser, currentUser, onLogout, onBackT
       </div>
 
       <div className="pokedex-grid">
-        {INITIAL_CARDS.map((card) => {
-          const isUnlocked = unlockedCards.includes(card.id);
+        {INITIAL_CARDS.filter(card => unlockedCards.includes(card.id)).map((card) => {
           return (
             <Card
               key={card.id}
               card={card}
-              isUnlocked={isUnlocked}
+              isUnlocked={true}
               onClick={onCardClick}
+              unlockDate={targetUser.unlockedDates?.[card.id]}
             />
           );
         })}
