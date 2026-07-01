@@ -75,13 +75,15 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
 
             <div className="modal-title-row" style={{ alignItems: 'center' }}>
               <h2>{card.name}</h2>
-              <span className={`modal-card-rarity-tag rarity-badge ${card.rarity}`}>
-                {renderRarityLabel()}
-              </span>
             </div>
 
             <div>
-              <div className="modal-label">📜 Descrizione</div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                <div className="modal-label" style={{ marginBottom: 0 }}>📜 Descrizione</div>
+                <span className={`modal-card-rarity-tag rarity-badge ${card.rarity}`} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  {renderRarityLabel()}
+                </span>
+              </div>
               <div className="modal-value-box">{card.description}</div>
             </div>
 
