@@ -203,15 +203,15 @@ export default function App() {
       {currentView !== 'chat' && (
         <header style={{ padding: '16px 16px 8px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h1>🏆 Fanta Adiacent</h1>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             <button 
               className="btn btn-outline" 
-              style={{ padding: '4px', border: 'none', background: 'transparent' }}
+              style={{ padding: '4px', border: 'none', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               onClick={() => setShowRules(true)}
             >
               <Info size={22} color="var(--primary)" />
             </button>
-            <span style={{ fontSize: '13px', background: 'var(--bg-glass)', padding: '4px 10px', borderRadius: '12px', fontWeight: 'bold', color: 'var(--secondary)' }}>
+            <span style={{ fontSize: '13px', background: 'var(--bg-glass)', padding: '4px 10px', borderRadius: '12px', fontWeight: 'bold', color: 'var(--secondary)', whiteSpace: 'nowrap' }}>
               💎 {dbUser.score || 0} pts
             </span>
           </div>
