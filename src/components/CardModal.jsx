@@ -86,7 +86,7 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
             </div>
 
             <div>
-              <div className="modal-label">🎯 Sfida / Obiettivo di Cattura</div>
+              <div className="modal-label">🎯 Sfida</div>
               <div className="modal-value-box" style={{ borderColor: 'var(--primary)', color: '#d6bcfa' }}>
                 {card.challenge}
               </div>
@@ -94,15 +94,15 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
 
             <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
               <div style={{ flex: 1 }}>
-                <div className="modal-label">💎 Valore Carta</div>
+                <div className="modal-label" style={{ textAlign: 'center' }}>💎 Valore</div>
                 <div className="modal-value-box" style={{ textAlign: 'center', fontWeight: 'bold' }}>
                   {card.points} punti
                 </div>
               </div>
               <div style={{ flex: 1 }}>
-                <div className="modal-label">🔒 Stato Sblocco</div>
+                <div className="modal-label" style={{ textAlign: 'center' }}>🔒 Stato</div>
                 <div className="modal-value-box" style={{ textAlign: 'center', fontWeight: 'bold' }}>
-                  {isUnlocked ? '🔓 Sbloccata!' : '🔒 Da catturare'}
+                  {isUnlocked ? 'Sbloccata!' : 'Da catturare'}
                 </div>
               </div>
             </div>
