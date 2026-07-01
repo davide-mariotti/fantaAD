@@ -130,11 +130,12 @@ h1 {
 .login-screen {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: calc(24px + var(--safe-top)) 24px 24px 24px;
+  justify-content: flex-start;
+  min-height: 100%;
+  padding: calc(40px + var(--safe-top)) 24px 40px 24px;
   text-align: center;
+  overflow-y: auto;
 }
 
 .logo-container {
