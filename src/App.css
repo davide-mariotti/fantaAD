@@ -676,6 +676,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex-shrink: 0;
 }
 
 .chat-bubble.sent {
@@ -727,6 +728,7 @@ h1 {
   max-width: 90%;
   font-weight: 500;
   margin: 4px 0;
+  flex-shrink: 0;
 }
 
 /* 📸 CLAIM CARD BLOCK */
@@ -740,6 +742,7 @@ h1 {
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0,0,0,0.6);
   margin: 12px 0;
+  flex-shrink: 0;
 }
 
 .claim-header {
