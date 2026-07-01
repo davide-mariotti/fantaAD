@@ -248,13 +248,16 @@ const hasConfig =
   firebaseConfig.apiKey !== 'YOUR_API_KEY' &&
   firebaseConfig.projectId;
 
+// Check for explicit demo mode request via URL parameter
+const forceDemo = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('demo') === 'true';
+
 let firebaseApp = null;
 let auth = null;
 let db = null;
 let storage = null;
 let isDemoMode = true;
 
-if (hasConfig) {
+if (hasConfig && !forceDemo) {
   try {
     firebaseApp = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
     auth = getAuth(firebaseApp);
@@ -267,7 +270,7 @@ if (hasConfig) {
     isDemoMode = true;
   }
 } else {
-  console.log('💡 Credenziali Firebase assenti o incomplete. Attiva la modalità DEMO locale.');
+  console.log('💡 Demo mode forzata o credenziali Firebase assenti. Attiva la modalità DEMO locale.');
   isDemoMode = true;
 }
 
