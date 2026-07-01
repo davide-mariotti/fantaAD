@@ -18,8 +18,10 @@ Se la prova riceve 5 voti positivi, la creatura viene ufficialmente "sbloccata" 
 - **Pokedex Interattivo:** Griglia in stile Pokemon che mostra le creature da sbloccare, divise in Rarità (Comune, Non Comune, Rara, Ultra Rara), con effetti CSS 3D e animazioni olografiche.
 - **Chat e Validazione Partecipata:** Chat real-time in cui appaiono le "Richieste di Cattura" complete della foto scattata, della sfida richiesta e dello stato di avanzamento delle approvazioni (es. 3/5).
 - **Leaderboard (Classifica):** Una bacheca che ordina automaticamente tutti i giocatori in base al punteggio accumulato sbloccando le creature.
-- **Ottimizzazione Mobile-First:** UX e design moderni studiati per sembrare a tutti gli effetti un'applicazione mobile nativa, compatibile con gli standard PWA.
+- **Ottimizzazione Mobile-First & PWA:** UX e design moderni studiati per sembrare a tutti gli effetti un'applicazione mobile nativa, compatibile con gli standard PWA. Per gli utenti smartphone è forzata l'installazione PWA (Aggiungi a Schermata Home) per garantire il corretto funzionamento del Login Google, spesso bloccato dai browser in-app (es. social network o modalità incognito).
 - **Compressione Immagini Lato Client:** Ottimizzazione integrata che riduce drasticamente il peso delle foto in locale (via Canvas API) prima del caricamento, per abbattere il consumo di rete e storage (e prevenire errori di quota in Demo Mode).
+
+*(Versione Attuale: **v1.1.0**)*
 
 ## 🛠️ Stack Tecnologico
 

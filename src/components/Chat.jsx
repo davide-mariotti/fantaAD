@@ -137,7 +137,7 @@ export default function Chat({ user }) {
 
   return (
     <div className="chat-container">
-      <div className="chat-header">
+      <div className="chat-header" style={{ paddingTop: 'calc(16px + var(--safe-top))' }}>
         <h2 style={{ fontSize: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           💬 Chat di Gruppo Adiacent
         </h2>

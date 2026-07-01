@@ -208,7 +208,7 @@ export default function App() {
 
       {/* Header bar */}
       {currentView !== 'chat' && (
-        <header style={{ padding: '16px 16px 8px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <header style={{ padding: 'calc(16px + var(--safe-top)) 16px 8px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h1>🏆 Fanta Adiacent</h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             <button 

@@ -56,7 +56,7 @@ export default function Login({ onLoginSuccess, showToast }) {
         />
         <h1 className="login-title">Fanta Adiacent 🏆</h1>
         <p className="login-subtitle">Il Pokedex delle creature leggendarie in ufficio 🏢✨</p>
-        <p style={{ fontSize: '11px', color: 'var(--primary)', marginTop: '-24px', marginBottom: '32px', fontWeight: 'bold' }}>v1.0.0</p>
+        <p style={{ fontSize: '11px', color: 'var(--primary)', marginTop: '-24px', marginBottom: '32px', fontWeight: 'bold' }}>v1.1.0</p>
       </div>
 
       <div className="glass-panel login-card">

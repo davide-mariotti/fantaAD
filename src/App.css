@@ -28,6 +28,7 @@
   --rarity-ultrarara: #b794f4;
 
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
 }
 
 /* Custom Scrollbar Styling */
@@ -132,7 +133,7 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 24px;
+  padding: calc(24px + var(--safe-top)) 24px 24px 24px;
   text-align: center;
 }
 
