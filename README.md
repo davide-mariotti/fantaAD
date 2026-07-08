@@ -20,8 +20,9 @@ Se la prova riceve 5 voti positivi, la creatura viene ufficialmente "sbloccata" 
 - **Leaderboard (Classifica):** Una bacheca che ordina automaticamente tutti i giocatori in base al punteggio accumulato sbloccando le creature.
 - **Ottimizzazione Mobile-First & PWA:** UX e design moderni studiati per sembrare a tutti gli effetti un'applicazione mobile nativa, compatibile con gli standard PWA. Per gli utenti smartphone è forzata l'installazione PWA (Aggiungi a Schermata Home) per garantire il corretto funzionamento del Login Google, spesso bloccato dai browser in-app (es. social network o modalità incognito).
 - **Compressione Immagini Lato Client:** Ottimizzazione integrata che riduce drasticamente il peso delle foto in locale (via Canvas API) prima del caricamento, per abbattere il consumo di rete e storage (e prevenire errori di quota in Demo Mode).
+- **Privacy Volti Automatica (AI):** Integrazione nativa di modelli di Machine Learning (tramite `face-api.js`) che elaborano le foto in tempo reale nel browser per rilevare e censurare i volti presenti (sovrapponendo l'emoji 👽) garantendo sempre la privacy al 100% senza alcun invio di dati biometrici al server.
 
-*(Versione Attuale: **v1.1.0**)*
+*(Versione Attuale: **v1.2.0**)*
 
 ## 🛠️ Stack Tecnologico
 
