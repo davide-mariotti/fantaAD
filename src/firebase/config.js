@@ -274,6 +274,159 @@ export const INITIAL_CARDS = [
     description: 'Dice "Vado un attimo alla macchinetta del caffè" e scompare nei meandri dello spazio-tempo per ore.',
     challenge: '📸 Fotografa la scrivania vuota di un collega che si è alzato "solo per un caffè" e non è tornato dopo 45 minuti.',
     imageUrl: 'images/break_marathoner.png'
+  },
+  {
+    id: 'seo_guru',
+    name: '🔍 Il Guru della SEO',
+    rarity: 'noncomune',
+    points: 20,
+    description: 'Sempre a parlare di keyword, backlinks e posizionamento organico. Vede il mondo solo come un grande motore di ricerca.',
+    challenge: '📸 Fotografa una lavagna o uno schermo con un elenco lunghissimo di parole chiave assurde.',
+    imageUrl: 'images/seo_guru.png'
+  },
+  {
+    id: 'css_wizard',
+    name: '🪄 Il Mago dei CSS',
+    rarity: 'comune',
+    points: 15,
+    description: 'Riesce a centrare un div ad occhi chiusi, ma se gli parli di database inizia a sudare freddo.',
+    challenge: '📸 Fotografa un collega mentre ispeziona un elemento del browser cambiando i colori a caso.',
+    imageUrl: 'images/css_wizard.png'
+  },
+  {
+    id: 'scrum_purist',
+    name: '⏱️ Lo Scrum Master Purista',
+    rarity: 'rara',
+    points: 50,
+    description: 'Se il daily standup sfora i 15 minuti, inizia ad iperventilare. La sua vita è scandita in sprint di due settimane.',
+    challenge: '📸 Fai una foto al timer del daily meeting che sfora impietosamente.',
+    imageUrl: 'images/scrum_purist.png'
+  },
+  {
+    id: 'night_freelance',
+    name: '🦉 Il Freelance Notturno',
+    rarity: 'noncomune',
+    points: 25,
+    description: 'Lavora solo tra le 2 AM e le 6 AM, mandando email ad orari assurdi. Di giorno è praticamente un fantasma.',
+    challenge: '📸 Fotografa una mail o un commit inviati in orari improponibili della notte.',
+    imageUrl: 'images/night_freelance.png'
+  },
+  {
+    id: 'indecisive_client',
+    name: '🤷 Il Cliente Indeciso',
+    rarity: 'comune',
+    points: 10,
+    description: 'Apprezza il lavoro ma chiede sempre di renderlo "più pop". Cambia idea al momento della consegna.',
+    challenge: '📸 Fotografa un feedback del cliente che chiede di ingrandire il logo in modo eccessivo.',
+    imageUrl: 'images/indecisive_client.png'
+  },
+  {
+    id: 'keyboard_hacker',
+    name: '⌨️ L\'Hacker da Tastiera',
+    rarity: 'noncomune',
+    points: 30,
+    description: 'Usa il terminale con scritte verdi su sfondo nero persino per leggere le ricette di cucina. Non tocca un mouse dal 2012.',
+    challenge: '📸 Fotografa uno schermo pieno di terminali aperti per svolgere compiti banali.',
+    imageUrl: 'images/keyboard_hacker.png'
+  },
+  {
+    id: 'aggressive_sales',
+    name: '🤝 Il Sales Aggressivo',
+    rarity: 'rara',
+    points: 40,
+    description: 'Vende features non ancora sviluppate e promette miracoli in tempi record ai clienti, mandando in panico il team tecnico.',
+    challenge: '📸 Fotografa un collega commerciale mentre promette l\'impossibile al telefono.',
+    imageUrl: 'images/aggressive_sales.png'
+  },
+  {
+    id: 'blocked_copy',
+    name: '✍️ Il Copywriter in Blocco',
+    rarity: 'comune',
+    points: 10,
+    description: 'Fissa il foglio bianco aspettando l\'ispirazione divina che sembra non arrivare mai. Il suo cestino è pieno di idee scartate.',
+    challenge: '📸 Fotografa una bozza di testo vuota o con solo il titolo scritto da ore.',
+    imageUrl: 'images/blocked_copy.png'
+  },
+  {
+    id: 'unfindable_bug',
+    name: '🪲 Il Bug Introvabile',
+    rarity: 'ultrarara',
+    points: 90,
+    description: 'Appare solo in produzione, mai in locale. Ha rovinato più weekend di quanti se ne possano contare.',
+    challenge: '📸 Fai uno screenshot a un messaggio di errore incomprensibile che non sei riuscito a riprodurre.',
+    imageUrl: 'images/unfindable_bug.png'
+  },
+  {
+    id: 'data_magician',
+    name: '🔮 Il Data Scientist Mago',
+    rarity: 'rara',
+    points: 60,
+    description: 'Tira fuori predizioni da grafici incomprensibili e modelli di Machine Learning di cui nessuno capisce il funzionamento.',
+    challenge: '📸 Fotografa un grafico pieno di punti e linee senza alcun senso apparente per chiunque non sia del settore.',
+    imageUrl: 'images/data_magician.png'
+  },
+  {
+    id: 'meticulous_tester',
+    name: '🔎 Il Tester Pignolo',
+    rarity: 'noncomune',
+    points: 35,
+    description: 'Trova i bug più assurdi testando i form inserendo l\'intero testo della Divina Commedia al posto della mail.',
+    challenge: '📸 Fotografa un campo di testo riempito con caratteri casuali fino al limite massimo.',
+    imageUrl: 'images/meticulous_tester.png'
+  },
+  {
+    id: 'night_sysadmin',
+    name: '🦇 Il Sistemista Notturno',
+    rarity: 'rara',
+    points: 45,
+    description: 'Vive nel server room, non ha mai visto la luce del sole. Il suo gruppo sanguigno è Monster Energy.',
+    challenge: '📸 Fotografa un collega che beve un energy drink alle 9 di mattina.',
+    imageUrl: 'images/night_sysadmin.png'
+  },
+  {
+    id: 'sorcerer_apprentice',
+    name: '🧙 L\'Apprendista Stregone',
+    rarity: 'comune',
+    points: 10,
+    description: 'Junior dev che fa copia-incolla da Stack Overflow sperando che la magia funzioni. A volte ci riesce.',
+    challenge: '📸 Fai uno screenshot a un blocco di codice palesemente incollato che non c\'entra nulla col contesto.',
+    imageUrl: 'images/sorcerer_apprentice.png'
+  },
+  {
+    id: 'social_manager',
+    name: '✨ La Social Media Manager',
+    rarity: 'noncomune',
+    points: 25,
+    description: 'Tutto deve essere "aesthetic". Passa ore a scorrere TikTok sostenendo che sia "ricerca di mercato".',
+    challenge: '📸 Fotografa qualcuno impegnato a registrare un balletto per i social in ufficio.',
+    imageUrl: 'images/social_manager.png'
+  },
+  {
+    id: 'ui_artist',
+    name: '🎨 L\'UI Designer Artista',
+    rarity: 'rara',
+    points: 40,
+    description: 'Crea interfacce di una bellezza commovente, ma completamente inusabili. "L\'accessibilità uccide l\'arte".',
+    challenge: '📸 Fotografa un bottone su un sito o un\'app che è impossibile da cliccare o capire.',
+    imageUrl: 'images/ui_artist.png'
+  },
+  {
+    id: 'monolith_backend',
+    name: '🧱 Il Backend Monolitico',
+    rarity: 'rara',
+    points: 50,
+    description: 'Odia i microservizi. Gestisce tutta la logica di business dell\'azienda in un singolo file da 40.000 righe.',
+    challenge: '📸 Fotografa un editor di codice con un file aperto che supera le 5000 righe.',
+    imageUrl: 'images/monolith_backend.png'
+  },
+  {
+    id: 'silent_videomaker',
+    name: '🎬 Il Videomaker Silenzioso',
+    rarity: 'noncomune',
+    points: 30,
+    description: 'Indossa perennemente cuffie giganti e fissa una timeline, spostando lo stesso fotogramma avanti e indietro per giorni.',
+    challenge: '📸 Fotografa un collega con cuffie enormi isolato dal resto del mondo in ufficio.',
+    imageUrl: 'images/silent_videomaker.png'
   }
 ];
 
