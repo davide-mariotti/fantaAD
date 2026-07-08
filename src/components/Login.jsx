@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth, isDemoMode } from '../firebase/config';
+import pkg from '../../package.json';
 
 // 5 pre-made office avatars to select in Demo Mode
 const MOCK_AVATARS = [
@@ -57,7 +58,7 @@ export default function Login({ onLoginSuccess, showToast }) {
           />
           <h1 className="login-title">Fanta Adiacent 🏆</h1>
           <p className="login-subtitle">Il Pokedex delle creature leggendarie in ufficio 🏢✨</p>
-          <p style={{ fontSize: '11px', color: 'var(--primary)', marginTop: '-24px', marginBottom: '32px', fontWeight: 'bold' }}>v1.1.0</p>
+          <p style={{ fontSize: '11px', color: 'var(--primary)', marginTop: '-24px', marginBottom: '32px', fontWeight: 'bold' }}>v{pkg.version}</p>
         </div>
 
         <div className="glass-panel login-card">

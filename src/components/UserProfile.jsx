@@ -3,6 +3,7 @@ import Card from './Card';
 import { INITIAL_CARDS } from '../firebase/config';
 import { listenToUsers } from '../firebase/db';
 import { LogOut, ArrowLeft, Award, Layers } from 'lucide-react';
+import pkg from '../../package.json';
 
 export default function UserProfile({ targetUser, currentUser, onLogout, onBackToLeaderboard, onCardClick }) {
   const [globalRank, setGlobalRank] = useState('-');
@@ -53,7 +54,7 @@ export default function UserProfile({ targetUser, currentUser, onLogout, onBackT
             <span className="profile-stat-lbl">Punti</span>
           </div>
           <div className="profile-stat-box">
-            <span className="profile-stat-val">👾 {unlockedCards.length}/10</span>
+            <span className="profile-stat-val">👾 {unlockedCards.length}/{INITIAL_CARDS.length}</span>
             <span className="profile-stat-lbl">Catturate</span>
           </div>
           <div className="profile-stat-box">
@@ -74,6 +75,9 @@ export default function UserProfile({ targetUser, currentUser, onLogout, onBackT
             </button>
           </div>
         )}
+        <div style={{ textAlign: 'center', marginTop: '12px', fontSize: '11px', color: 'var(--text-muted)' }}>
+          v{pkg.version}
+        </div>
       </div>
 
       <div className="profile-binder-title">
