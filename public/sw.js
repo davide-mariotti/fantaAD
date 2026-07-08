@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fanta-adiacent-v2';
+const CACHE_NAME = 'fanta-adiacent-v1.4.0';
 const ASSETS = [
   './',
   './index.html',
@@ -45,22 +45,25 @@ self.addEventListener('fetch', (e) => {
   if (!e.request.url.startsWith('http')) return;
 
   e.respondWith(
-    caches.match(e.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
+    fetch(e.request).then((response) => {
+      // Se la richiesta ha successo, la salviamo in cache per l'uso offline
+      if (e.request.method === 'GET' && response.status === 200) {
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(e.request, responseClone);
+        });
       }
-      return fetch(e.request).then((response) => {
-        // Cache newly fetched assets dynamically (if they are GET and successful)
-        if (e.request.method === 'GET' && response.status === 200) {
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(e.request, responseClone);
-          });
+      return response;
+    }).catch(() => {
+      // Fallback alla cache se si è offline
+      return caches.match(e.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
         }
-        return response;
-      }).catch(() => {
-        // Fallback for offline images or page
-        return caches.match('./index.html');
+        // Se naviga su una pagina non in cache e offline, diamo la index.html
+        if (e.request.mode === 'navigate') {
+          return caches.match('./index.html');
+        }
       });
     })
   );
