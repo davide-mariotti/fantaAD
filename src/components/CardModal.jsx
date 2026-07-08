@@ -15,7 +15,8 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
   useEffect(() => {
     const loadModels = async () => {
       try {
-        await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
+        const modelsPath = import.meta.env.BASE_URL + 'models';
+        await faceapi.nets.tinyFaceDetector.loadFromUri(modelsPath);
         setIsModelsLoaded(true);
       } catch (e) {
         console.error("Errore caricamento modelli face-api", e);
@@ -56,7 +57,8 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
         // Applica Face Detection e censura
         try {
           if (!isModelsLoaded) {
-            await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
+            const modelsPath = import.meta.env.BASE_URL + 'models';
+            await faceapi.nets.tinyFaceDetector.loadFromUri(modelsPath);
             setIsModelsLoaded(true);
           }
           const detections = await faceapi.detectAllFaces(canvas, new faceapi.TinyFaceDetectorOptions());
