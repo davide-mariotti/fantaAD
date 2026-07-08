@@ -33,11 +33,11 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
     const file = e.target.files[0];
     if (!file) return;
 
+    setIsAnalyzing(true);
     const reader = new FileReader();
     reader.onload = (event) => {
       const img = new Image();
       img.onload = async () => {
-        setIsAnalyzing(true);
         const canvas = document.createElement('canvas');
         const MAX_WIDTH = 800;
         let width = img.width;
@@ -63,16 +63,23 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
           }
           const detections = await faceapi.detectAllFaces(canvas, new faceapi.TinyFaceDetectorOptions());
           if (detections.length > 0) {
+            ctx.save();
+            ctx.filter = 'blur(25px)';
+            const scaleX = img.width / width;
+            const scaleY = img.height / height;
+
             detections.forEach(detection => {
               const box = detection.box;
-              const fontSize = box.width * 1.5; 
-              ctx.font = `${fontSize}px sans-serif`;
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'middle';
-              // Disegna l'alieno al centro del volto
-              ctx.fillText('👽', box.x + box.width / 2, box.y + box.height / 2);
+              const padding = box.width * 0.15;
+              const x = Math.max(0, box.x - padding);
+              const y = Math.max(0, box.y - padding);
+              const w = Math.min(width - x, box.width + padding * 2);
+              const h = Math.min(height - y, box.height + padding * 2);
+
+              ctx.drawImage(img, x * scaleX, y * scaleY, w * scaleX, h * scaleY, x, y, w, h);
             });
-            showToast(`Trovati e censurati ${detections.length} volti! 👽`, 'success');
+            ctx.restore();
+            showToast(`Trovati e censurati ${detections.length} volti! 🔒`, 'success');
           }
         } catch(err) {
            console.error("Errore analisi volti", err);
