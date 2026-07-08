@@ -46,7 +46,7 @@ export default function UserProfile({ targetUser, currentUser, onLogout, onBackT
         <h2 className="profile-name">
           {isSelf ? '👋 Ciao, ' : ''}@{targetUser.displayName}
         </h2>
-        <p className="profile-email">{targetUser.email}</p>
+
 
         <div className="profile-stats-row">
           <div className="profile-stat-box">
