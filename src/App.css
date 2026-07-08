@@ -1168,3 +1168,4 @@ h1 {
   color: white;
 }
 
+@keyframes spin { 100% { transform: rotate(360deg); } }

@@ -1,13 +1,30 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Card, { getRarityIcon } from './Card';
 import { claimCapture } from '../firebase/db';
 import { Camera, Send, X } from 'lucide-react';
+import * as faceapi from '@vladmandic/face-api';
 
 export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubmitted, showToast }) {
   const [isClaiming, setIsClaiming] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [isModelsLoaded, setIsModelsLoaded] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    const loadModels = async () => {
+      try {
+        await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
+        setIsModelsLoaded(true);
+      } catch (e) {
+        console.error("Errore caricamento modelli face-api", e);
+      }
+    };
+    if (isClaiming && !isModelsLoaded) {
+      loadModels();
+    }
+  }, [isClaiming, isModelsLoaded]);
 
   if (!card) return null;
 
@@ -18,7 +35,8 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
     const reader = new FileReader();
     reader.onload = (event) => {
       const img = new Image();
-      img.onload = () => {
+      img.onload = async () => {
+        setIsAnalyzing(true);
         const canvas = document.createElement('canvas');
         const MAX_WIDTH = 800;
         let width = img.width;
@@ -35,9 +53,31 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
         const ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0, width, height);
 
+        // Applica Face Detection e censura
+        if (isModelsLoaded) {
+          try {
+            const detections = await faceapi.detectAllFaces(canvas, new faceapi.TinyFaceDetectorOptions());
+            if (detections.length > 0) {
+              detections.forEach(detection => {
+                const box = detection.box;
+                const fontSize = box.width * 1.5; 
+                ctx.font = `${fontSize}px sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                // Disegna l'alieno al centro del volto
+                ctx.fillText('👽', box.x + box.width / 2, box.y + box.height / 2);
+              });
+              showToast(`Trovati e censurati ${detections.length} volti! 👽`, 'success');
+            }
+          } catch(err) {
+             console.error("Errore analisi volti", err);
+          }
+        }
+
         // Compress image to JPEG to save localStorage space / Firebase bandwidth
         const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
         setSelectedPhoto(compressedBase64);
+        setIsAnalyzing(false);
       };
       img.src = event.target.result;
     };
@@ -161,8 +201,13 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
                 style={{ display: 'none' }}
               />
 
-              <div className="camera-preview-box" onClick={triggerFileInput}>
-                {selectedPhoto ? (
+              <div className="camera-preview-box" onClick={!isAnalyzing ? triggerFileInput : undefined}>
+                {isAnalyzing ? (
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+                     <div className="spinner" style={{ width: '30px', height: '30px', border: '3px solid var(--border)', borderTopColor: 'var(--primary)', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
+                     <span className="camera-preview-text">Analisi privacy in corso... ⏳</span>
+                  </div>
+                ) : selectedPhoto ? (
                   <img src={selectedPhoto} alt="Anteprima prova" className="preview-uploaded-img" />
                 ) : (
                   <>
