@@ -54,24 +54,27 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
         ctx.drawImage(img, 0, 0, width, height);
 
         // Applica Face Detection e censura
-        if (isModelsLoaded) {
-          try {
-            const detections = await faceapi.detectAllFaces(canvas, new faceapi.TinyFaceDetectorOptions());
-            if (detections.length > 0) {
-              detections.forEach(detection => {
-                const box = detection.box;
-                const fontSize = box.width * 1.5; 
-                ctx.font = `${fontSize}px sans-serif`;
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                // Disegna l'alieno al centro del volto
-                ctx.fillText('👽', box.x + box.width / 2, box.y + box.height / 2);
-              });
-              showToast(`Trovati e censurati ${detections.length} volti! 👽`, 'success');
-            }
-          } catch(err) {
-             console.error("Errore analisi volti", err);
+        try {
+          if (!isModelsLoaded) {
+            await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
+            setIsModelsLoaded(true);
           }
+          const detections = await faceapi.detectAllFaces(canvas, new faceapi.TinyFaceDetectorOptions());
+          if (detections.length > 0) {
+            detections.forEach(detection => {
+              const box = detection.box;
+              const fontSize = box.width * 1.5; 
+              ctx.font = `${fontSize}px sans-serif`;
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'middle';
+              // Disegna l'alieno al centro del volto
+              ctx.fillText('👽', box.x + box.width / 2, box.y + box.height / 2);
+            });
+            showToast(`Trovati e censurati ${detections.length} volti! 👽`, 'success');
+          }
+        } catch(err) {
+           console.error("Errore analisi volti", err);
+           showToast('Errore durante l\'analisi privacy.', 'error');
         }
 
         // Compress image to JPEG to save localStorage space / Firebase bandwidth
