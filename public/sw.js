@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fanta-adiacent-v1.4.1';
+const CACHE_NAME = 'fanta-adiacent-v1.5.0';
 const ASSETS = [
   './',
   './index.html',

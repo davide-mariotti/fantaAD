@@ -16,13 +16,37 @@ export default function Chat({ user }) {
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
 
+  const lastSeenRef = useRef(Date.now());
+
+  useEffect(() => {
+    if ('Notification' in window && Notification.permission !== 'granted' && Notification.permission !== 'denied') {
+      Notification.requestPermission();
+    }
+  }, []);
+
   // Subscribe to real-time chat updates
   useEffect(() => {
     const unsubscribe = listenToMessages((data) => {
       setMessages(data);
+
+      const newMessages = data.filter(m => m.timestamp > lastSeenRef.current);
+      if (newMessages.length > 0) {
+        lastSeenRef.current = Math.max(...data.map(m => m.timestamp));
+        newMessages.forEach(msg => {
+          if (msg.type === 'claim' && msg.senderId !== user?.uid) {
+            if ('Notification' in window && Notification.permission === 'granted') {
+              const iconPath = import.meta.env.BASE_URL + 'icon-192.png';
+              new Notification('📸 Nuova Cattura in Chat!', {
+                body: `${msg.senderName} ha catturato ${msg.cardName}! Corri a votare!`,
+                icon: iconPath
+              });
+            }
+          }
+        });
+      }
     });
     return () => unsubscribe && unsubscribe();
-  }, []);
+  }, [user]);
 
   // Scroll to bottom on new messages
   useEffect(() => {
