@@ -14,8 +14,8 @@ import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { db, storage, isDemoMode, INITIAL_CARDS } from './config';
 
 // --- Local Storage Database Mock for DEMO Mode ---
-const LOCAL_USERS_KEY = 'fanta_adiacent_users';
-const LOCAL_MESSAGES_KEY = 'fanta_adiacent_messages';
+const LOCAL_USERS_KEY = 'fanta_ufficio_users';
+const LOCAL_MESSAGES_KEY = 'fanta_ufficio_messages';
 
 // Helper to get local data
 const getLocalUsers = () => {
@@ -30,7 +30,7 @@ const getLocalMessages = () => {
     const initialSeed = [
       {
         id: 'welcome_system',
-        text: '👋 Benvenuto in Fanta Adiacent! Cattura le creature in ufficio, carica le foto e sblocca le carte leggendarie. 🚀',
+        text: '👋 Benvenuto in Fanta Ufficio! Cattura le creature in ufficio, carica le foto e sblocca le carte leggendarie. 🚀',
         type: 'system',
         timestamp: Date.now() - 3600000,
         senderName: 'System'

@@ -15,7 +15,7 @@ export default function RulesModal({ onClose }) {
 
         <div style={{ fontSize: '13px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
           <p style={{ marginBottom: '12px' }}>
-            Benvenuto in <strong>Fanta Adiacent</strong>! Il tuo obiettivo è completare l'album fotografando le creature leggendarie dell'ufficio.
+            Benvenuto in <strong>Fanta Ufficio</strong>! Il tuo obiettivo è completare l'album fotografando le creature leggendarie dell'ufficio.
           </p>
 
           <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', background: 'rgba(255,255,255,0.05)', padding: '12px', borderRadius: '8px' }}>

@@ -106,10 +106,10 @@ export default function Chat({ user }) {
     };
 
     if (isDemoMode) {
-      const msgs = JSON.parse(localStorage.getItem('fanta_adiacent_messages') || '[]');
+      const msgs = JSON.parse(localStorage.getItem('fanta_ufficio_messages') || '[]');
       messageData.id = 'photo_' + Date.now();
       msgs.push(messageData);
-      localStorage.setItem('fanta_adiacent_messages', JSON.stringify(msgs));
+      localStorage.setItem('fanta_ufficio_messages', JSON.stringify(msgs));
       // Trigger listeners manually
       const event = new Event('storage');
       window.dispatchEvent(event);
@@ -130,7 +130,7 @@ export default function Chat({ user }) {
   useEffect(() => {
     if (isDemoMode) {
       const handleLocalUpdate = () => {
-        const msgs = JSON.parse(localStorage.getItem('fanta_adiacent_messages') || '[]');
+        const msgs = JSON.parse(localStorage.getItem('fanta_ufficio_messages') || '[]');
         setMessages(msgs);
       };
       window.addEventListener('fanta_db_update', handleLocalUpdate);
@@ -163,12 +163,12 @@ export default function Chat({ user }) {
     <div className="chat-container">
       <div className="chat-header" style={{ paddingTop: 'calc(16px + var(--safe-top))' }}>
         <h2 style={{ fontSize: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          💬 Chat di Gruppo Adiacent
+          💬 Chat di Gruppo Ufficio
         </h2>
         {isDemoMode && (
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             <button 
-              onClick={() => { localStorage.removeItem('fanta_adiacent_messages'); window.location.reload(); }} 
+              onClick={() => { localStorage.removeItem('fanta_ufficio_messages'); window.location.reload(); }} 
               style={{ fontSize: '11px', background: 'var(--primary)', color: 'white', padding: '4px 8px', borderRadius: '4px', cursor: 'pointer', border: 'none' }}
             >
               🧹 Pulisci Chat

@@ -16,7 +16,7 @@ export default function Leaderboard({ onUserSelect }) {
   // Listen to custom local storage update events (Demo Mode reactive support)
   useEffect(() => {
     const handleLocalUpdate = () => {
-      const usersData = Object.values(JSON.parse(localStorage.getItem('fanta_adiacent_users') || '{}'));
+      const usersData = Object.values(JSON.parse(localStorage.getItem('fanta_ufficio_users') || '{}'));
       const sorted = usersData.sort((a, b) => (b.score || 0) - (a.score || 0));
       setUsers(sorted);
     };

@@ -135,7 +135,7 @@ export default function App() {
         <div style={{ textAlign: 'center' }}>
           <span style={{ fontSize: '40px', display: 'block', animation: 'float 2s ease-in-out infinite' }}>🏆</span>
           <p style={{ marginTop: '16px', fontFamily: 'var(--font-display)', fontWeight: 'bold' }}>
-            Caricamento Fanta Adiacent...
+            Caricamento Fanta Ufficio...
           </p>
         </div>
       </div>
@@ -209,7 +209,7 @@ export default function App() {
       {/* Header bar */}
       {currentView !== 'chat' && (
         <header style={{ padding: 'calc(16px + var(--safe-top)) 16px 8px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1>🏆 Fanta Adiacent</h1>
+          <h1>🏆 Fanta Ufficio</h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             <button 
               className="btn btn-outline" 

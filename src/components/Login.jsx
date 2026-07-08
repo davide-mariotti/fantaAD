@@ -40,7 +40,7 @@ export default function Login({ onLoginSuccess, showToast }) {
     const mockUser = {
       uid: `mock_${seed}_${Date.now()}`,
       displayName: name,
-      email: `${seed}@adiacent.it`,
+      email: `${seed}@ufficio.it`,
       photoURL: `https://api.dicebear.com/7.x/pixel-art/svg?seed=${seed}`
     };
 
@@ -53,10 +53,10 @@ export default function Login({ onLoginSuccess, showToast }) {
         <div className="logo-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <img
             src="/fantaAD/icon-512.png"
-            alt="Fanta Adiacent Logo"
+            alt="Fanta Ufficio Logo"
             className="logo-img"
           />
-          <h1 className="login-title">Fanta Adiacent 🏆</h1>
+          <h1 className="login-title">Fanta Ufficio 🏆</h1>
           <p className="login-subtitle">Il Pokedex delle creature leggendarie in ufficio 🏢✨</p>
           <p style={{ fontSize: '11px', color: 'var(--primary)', marginTop: '-24px', marginBottom: '32px', fontWeight: 'bold' }}>v{pkg.version}</p>
         </div>
@@ -71,7 +71,7 @@ export default function Login({ onLoginSuccess, showToast }) {
                   </h2>
                   <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5', marginBottom: '20px' }}>
                     I browser in-app (es. Instagram) bloccano il login Google.<br />
-                    Devi installare Fanta Adiacent per accedere.
+                    Devi installare Fanta Ufficio per accedere.
                   </p>
                   
                   <div style={{ background: 'rgba(255,255,255,0.05)', padding: '16px', borderRadius: '12px', textAlign: 'left', display: 'inline-block', width: '100%' }}>

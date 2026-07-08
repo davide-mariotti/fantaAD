@@ -1,6 +1,6 @@
-# Fanta Adiacent 🏆
+# Fanta Ufficio 🏆
 
-Fanta Adiacent è una Web App interattiva e gamificata concepita per la vita d'ufficio. Funziona come una sorta di "Pokedex" aziendale, in cui l'obiettivo dei colleghi (i giocatori) è individuare, fotografare e collezionare le diverse "creature leggendarie" (gli stereotipi o i personaggi tipici) che si aggirano per l'ufficio.
+Fanta Ufficio è una Web App interattiva e gamificata concepita per la vita d'ufficio. Funziona come una sorta di "Pokedex" aziendale, in cui l'obiettivo dei colleghi (i giocatori) è individuare, fotografare e collezionare le diverse "creature leggendarie" (gli stereotipi o i personaggi tipici) che si aggirano per l'ufficio.
 
 ## 🎯 Scopo del Gioco
 

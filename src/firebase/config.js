@@ -182,7 +182,7 @@ export const INITIAL_CARDS = [
     rarity: 'ultrarara',
     points: 95,
     description: 'Una creatura mistica che si manifesta solo per promuovere sondaggi sulla felicità aziendale, corsi di mindfulness obbligatori e borracce termiche logate.',
-    challenge: '📸 Fotografa un gadget aziendale brandizzato Fanta Adiacent (tazza, agenda, borraccia) posizionato in un luogo surreale o insolito.',
+    challenge: '📸 Fotografa un gadget aziendale brandizzato Fanta Ufficio (tazza, agenda, borraccia) posizionato in un luogo surreale o insolito.',
     imageUrl: 'images/hr_deity.png'
   },
   {
