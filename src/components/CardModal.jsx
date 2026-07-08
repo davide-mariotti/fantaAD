@@ -63,11 +63,6 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
           }
           const detections = await faceapi.detectAllFaces(canvas, new faceapi.TinyFaceDetectorOptions());
           if (detections.length > 0) {
-            ctx.save();
-            ctx.filter = 'blur(25px)';
-            const scaleX = img.width / width;
-            const scaleY = img.height / height;
-
             detections.forEach(detection => {
               const box = detection.box;
               const padding = box.width * 0.15;
@@ -76,9 +71,23 @@ export default function CardModal({ card, isUnlocked, user, onClose, onClaimSubm
               const w = Math.min(width - x, box.width + padding * 2);
               const h = Math.min(height - y, box.height + padding * 2);
 
-              ctx.drawImage(img, x * scaleX, y * scaleY, w * scaleX, h * scaleY, x, y, w, h);
+              // Creiamo un canvas temporaneo per l'effetto mosaico (pixelation)
+              // Molto più compatibile di ctx.filter = 'blur' su iOS/Safari
+              const pixelSize = 12; // Dimensione dei pixel del mosaico
+              const pCanvas = document.createElement('canvas');
+              pCanvas.width = Math.max(1, w / pixelSize);
+              pCanvas.height = Math.max(1, h / pixelSize);
+              const pCtx = pCanvas.getContext('2d');
+              
+              // Disegniamo la faccia rimpicciolita
+              pCtx.drawImage(canvas, x, y, w, h, 0, 0, pCanvas.width, pCanvas.height);
+              
+              // La ridisegniamo ingrandita disabilitando lo smoothing (crea i quadratini)
+              ctx.save();
+              ctx.imageSmoothingEnabled = false;
+              ctx.drawImage(pCanvas, 0, 0, pCanvas.width, pCanvas.height, x, y, w, h);
+              ctx.restore();
             });
-            ctx.restore();
             showToast(`Trovati e censurati ${detections.length} volti! 🔒`, 'success');
           }
         } catch(err) {
